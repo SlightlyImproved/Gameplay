@@ -1,4 +1,4 @@
--- SlightlyImprovedGameplay 1.0.0 (Jan 1 2015)
+-- SlightlyImprovedGameplay 1.0.1 (Jan 21 2015)
 -- Licensed under CC BY-NC-SA 4.0
 
 SIG = "SlightlyImprovedGameplay"

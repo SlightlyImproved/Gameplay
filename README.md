@@ -13,3 +13,4 @@ The Slightly Improved™ add-ons provides many great improvements to the game in
 3. The game already makes periodic warnings about damaged gear, this add-on extends this feature for:
     - Treasure or Trash items in your inventory that should be sold to a vendor.
     - Stolen items that should be fenced or laundered.
+4. Set C.O.D. as the default new mail mode (you usually charge rather then give away).

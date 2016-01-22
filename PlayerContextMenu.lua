@@ -1,4 +1,4 @@
--- Slightly Improved™ Gameplay 1.0.0 (Jan 1 2015)
+-- Slightly Improved™ Gameplay 1.0.1 (Jan 21 2015)
 -- Licensed under CC BY-NC-SA 4.0
 
 CALLBACK_MANAGER:RegisterCallback("Sig_OnAddOnLoaded", function()
@@ -12,9 +12,14 @@ CALLBACK_MANAGER:RegisterCallback("Sig_OnAddOnLoaded", function()
         end)
 
         AddMenuItem(GetString(SI_CHAT_PLAYER_CONTEXT_SEND_MAIL), function()
-            MAIL_SEND:ComposeMailTo(playerName)
+            if MAIL_SEND:IsHidden() then
+                MAIL_SEND:ComposeMailTo(playerName)
+            else
+                MAIL_SEND:SetReply(playerName)
+            end
         end)
 
+        -- Refresh menu.
         ShowMenu()
     end
 end)

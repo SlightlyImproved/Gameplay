@@ -1,10 +1,10 @@
--- Slightly Improved™ Gameplay 1.0.0 (Jan 1 2015)
+-- Slightly Improved™ Gameplay 1.0.1 (Jan 21 2015)
 -- Licensed under CC BY-NC-SA 4.0
 
 local FenceWarner = ZO_Object:Subclass()
 
 local AUTO_WARN_WAIT_TIME = 60 * 10
-local TRIGGERED_WARN_WAIT_TIME = 60 * 5
+local TRIGGERED_WARN_WAIT_TIME = 60 * 10
 
 function FenceWarner:New()
     local warner = ZO_Object.New(self)
