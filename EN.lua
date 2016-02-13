@@ -9,5 +9,6 @@ ZO_CreateStringId("SI_HAS_TRASH_ITEM", "You have items in your inventory that sh
 ZO_CreateStringId("SI_CHAT_PLAYER_CONTEXT_SEND_MAIL", GetString(SI_SOCIAL_MENU_SEND_MAIL))
 ZO_CreateStringId("SI_CHAT_PLAYER_CONTEXT_COPY_IN_CHAT", "Copy in Chat")
 
--- Clock
+-- Clock/Time
 ZO_CreateStringId("SI_SLASH_CLOCK", "/clock")
+ZO_CreateStringId("SI_SLASH_TIME", "/time")

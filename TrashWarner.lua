@@ -1,4 +1,4 @@
--- Slightly Improved™ Gameplay 1.0.1 (Jan 23 2016)
+-- Slightly Improved™ Gameplay 1.1.0 (Feb 15 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 local TrashWarner = ZO_Object:Subclass()
@@ -13,7 +13,6 @@ function TrashWarner:New()
 end
 
 function TrashWarner:Initialize()
-    self.isEnabled = true
     self.lastWarning = nil
 
     local function OnInventoryFullUpdate()
@@ -38,14 +37,6 @@ function TrashWarner:Initialize()
     EVENT_MANAGER:RegisterForUpdate("TrashWarner", 60 * 1000, OnUpdate)
 end
 
-function TrashWarner:Enable()
-    self.isEnabled = true
-end
-
-function TrashWarner:Disable()
-    self.isEnabled = false
-end
-
 function TrashWarner:ShouldWarn(waitTime)
     local shouldWarn = false
 
@@ -62,15 +53,20 @@ function TrashWarner:ShouldWarn(waitTime)
 
     local notInCombat = not IsUnitInCombat("player")
     local waitTimeElapsed = (not self.lastWarning or self.lastWarning + waitTime < GetFrameTimeSeconds())
+    local notInPvp = not IsPlayerInAvAWorld()
 
-    return self.isEnabled and shouldWarn and notInCombat and waitTimeElapsed
+    return self:IsEnabled() and shouldWarn and notInCombat and waitTimeElapsed and notInPvp
 end
 
 function TrashWarner:Warn(waitTime)
-    ZO_Alert(UI_ALERT_CATEGORY_ALERT, SOUNDS.NEGATIVE_CLICK, SI_HAS_TRASH_ITEM)
+    ZO_Alert(UI_ALERT_CATEGORY_ALERT, SOUNDS.JUSTICE_GOLD_REMOVED, SI_HAS_TRASH_ITEM)
     self.lastWarning = GetFrameTimeSeconds()
 end
 
-CALLBACK_MANAGER:RegisterCallback("Sig_OnAddOnLoaded", function()
+CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
+    function TrashWarner:IsEnabled()
+        return savedVars.settings.isTrashWarnerEnabled
+    end
+
     TRASH_WARNER = TrashWarner:New()
 end)

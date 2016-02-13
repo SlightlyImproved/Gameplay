@@ -1,4 +1,4 @@
--- Slightly Improved™ Gameplay 1.0.1 (Jan 23 2016)
+-- Slightly Improved™ Gameplay 1.1.0 (Feb 15 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 local FenceWarner = ZO_Object:Subclass()
@@ -13,7 +13,6 @@ function FenceWarner:New()
 end
 
 function FenceWarner:Initialize()
-    self.isEnabled = true
     self.lastWarning = nil
 
     local function OnInventoryFullUpdate()
@@ -38,27 +37,24 @@ function FenceWarner:Initialize()
     EVENT_MANAGER:RegisterForUpdate("FenceWarner", 60 * 1000, OnUpdate)
 end
 
-function FenceWarner:Enable()
-    self.isEnabled = true
-end
-
-function FenceWarner:Disable()
-    self.isEnabled = false
-end
-
 function FenceWarner:ShouldWarn(waitTime)
     local shouldWarn = AreAnyItemsStolen(BAG_BACKPACK)
     local notInCombat = not IsUnitInCombat("player")
     local waitTimeElapsed = (not self.lastWarning or self.lastWarning + waitTime < GetFrameTimeSeconds())
+    local notInPvp = not IsPlayerInAvAWorld()
 
-    return self.isEnabled and shouldWarn and notInCombat and waitTimeElapsed
+    return self:IsEnabled() and shouldWarn and notInCombat and waitTimeElapsed and notInPvp
 end
 
 function FenceWarner:Warn(waitTime)
-    ZO_Alert(UI_ALERT_CATEGORY_ALERT, SOUNDS.NEGATIVE_CLICK, SI_HAS_STOLEN_ITEM)
+    ZO_Alert(UI_ALERT_CATEGORY_ALERT, SOUNDS.FENCE_ITEM_LAUNDERED, SI_HAS_STOLEN_ITEM)
     self.lastWarning = GetFrameTimeSeconds()
 end
 
-CALLBACK_MANAGER:RegisterCallback("Sig_OnAddOnLoaded", function()
+CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
+    function FenceWarner:IsEnabled()
+        return savedVars.settings.isFenceWarnerEnabled
+    end
+
     FENCE_WARNER = FenceWarner:New()
 end)

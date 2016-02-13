@@ -1,16 +1,23 @@
--- SlightlyImprovedGameplay 1.0.1 (Jan 23 2016)
+-- SlightlyImprovedGameplay 1.1.0 (Feb 15 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
-SIG = "SlightlyImprovedGameplay"
+SLIGHTLY_IMPROVED_GAMEPLAY = "SlightlyImprovedGameplay"
 
 local defaultSavedVars =
 {
-    ["showClock"] = false,
+    settings =
+    {
+        mailSendDefaultMode = MAIL_SEND_MODE_COD,
+        compactPaperDoll = true,
+        noWorldmapWayshrines = true,
+        isTrashWarnerEnabled = true,
+        isFenceWarnerEnabled = true,
+    }
 }
 
-EVENT_MANAGER:RegisterForEvent(SIG, EVENT_ADD_ON_LOADED, function(eventCode, addOnName)
-    if (addOnName == SIG) then
-        local sv = ZO_SavedVars:New("SigSavedVars", 1, nil, defaultSavedVars)
-        CALLBACK_MANAGER:FireCallbacks("Sig_OnAddOnLoaded", sv)
+EVENT_MANAGER:RegisterForEvent(SLIGHTLY_IMPROVED_GAMEPLAY, EVENT_ADD_ON_LOADED, function(eventCode, addOnName)
+    if (addOnName == SLIGHTLY_IMPROVED_GAMEPLAY) then
+        local savedVars = ZO_SavedVars:New("SigSavedVars", 2, nil, defaultSavedVars)
+        CALLBACK_MANAGER:FireCallbacks("SlightlyImprovedGameplay_OnAddOnLoaded", savedVars)
     end
 end)

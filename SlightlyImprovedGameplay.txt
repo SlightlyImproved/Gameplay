@@ -1,16 +1,36 @@
 ## APIVersion: 100013
 ## Title: Slightly Improved™ Gameplay
-## Version: 1.0.1
-## SavedVariables: SigSavedVars
+## Version: 1.1.0
+## SavedVariables: SlightlyImprovedGameplay_SavedVars
 ## License: CC BY-NC-SA 4.0
+
+LibStub/LibStub.lua
+LibAddonMenu-2.0/LibAddonMenu-2.0.lua
+LibAddonMenu-2.0/controls/panel.lua
+LibAddonMenu-2.0/controls/submenu.lua
+LibAddonMenu-2.0/controls/button.lua
+LibAddonMenu-2.0/controls/checkbox.lua
+LibAddonMenu-2.0/controls/colorpicker.lua
+LibAddonMenu-2.0/controls/custom.lua
+LibAddonMenu-2.0/controls/description.lua
+LibAddonMenu-2.0/controls/dropdown.lua
+LibAddonMenu-2.0/controls/editbox.lua
+LibAddonMenu-2.0/controls/header.lua
+LibAddonMenu-2.0/controls/slider.lua
+LibAddonMenu-2.0/controls/texture.lua
+LibAddonMenu-2.0/controls/iconpicker.lua
+
+Settings.lua
 
 EN.lua
 $(language).lua
 
+NoWorldMapWayshrine.lua
+CompactPaperDoll.lua
 MailSend.lua
-Clock.xml
 Clock.lua
 FenceWarner.lua
 TrashWarner.lua
 PlayerContextMenu.lua
+
 SlightlyImprovedGameplay.lua
