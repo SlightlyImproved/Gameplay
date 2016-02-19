@@ -2,6 +2,10 @@
 
 > Miscellaneous changes for better gameplay in ESO.
 
+## Last update: 1.1.1 (Feb 18 2016)
+
+- Fixed settings not being saved properly.
+
 ## About
 
 The Slightly Improved™ Gameplay is a collection of small changes and additions to the game interface.

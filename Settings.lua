@@ -15,7 +15,7 @@ local options =
 {
     {
         type = "dropdown",
-        name = "New Mail Mode",
+        name = "Send Mail Mode",
         tooltip = "Change whether Send Money or C.O.D. option should be selected by default when sending a new mail.",
         choices = {"Send Money", "C.O.D."},
         getFunc = function() return getSetting("mailSendDefaultMode") end,

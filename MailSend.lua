@@ -1,4 +1,4 @@
--- Slightly Improved™ Gameplay 1.1.0 (Feb 15 2016)
+-- Slightly Improved™ Gameplay 1.1.1 (Feb 18 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 MAIL_SEND_MODE_COD = "C.O.D."
