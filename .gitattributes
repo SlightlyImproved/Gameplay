@@ -19,4 +19,5 @@
 .git* export-ignore
 package.sh export-ignore
 
-PerformanceMeter.*
+PerformanceMeter.* export-ignore
+s
