@@ -2,9 +2,10 @@
 
 > Miscellaneous changes for better gameplay in ESO.
 
-## Last update: 1.1.1 (Feb 18 2016)
+## Last update: 1.1.2 (Mar 23 2016)
 
-- Fixed settings not being saved properly.
+- Prevent warnings from going off while in a dungeon.
+- Add compatibility to API 100014.
 
 ## About
 
