@@ -42,8 +42,9 @@ function FenceWarner:ShouldWarn(waitTime)
     local notInCombat = not IsUnitInCombat("player")
     local waitTimeElapsed = (not self.lastWarning or self.lastWarning + waitTime < GetFrameTimeSeconds())
     local notInPvp = not IsPlayerInAvAWorld()
+    local notInDungeon = (GetMapContentType() ~= MAP_CONTENT_DUNGEON)
 
-    return self:IsEnabled() and shouldWarn and notInCombat and waitTimeElapsed and notInPvp
+    return self:IsEnabled() and shouldWarn and notInCombat and waitTimeElapsed and notInPvp and notInDungeon
 end
 
 function FenceWarner:Warn(waitTime)
