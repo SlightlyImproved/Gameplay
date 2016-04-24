@@ -1,3 +1,5 @@
+-- Slightly Improved™ Gameplay 1.1.1 (Feb 18 2016)
+-- Licensed under CC BY-NC-SA 4.0
 
 -- FenceWarner
 ZO_CreateStringId("SI_HAS_STOLEN_ITEM", "You have stolen items in your inventory.")

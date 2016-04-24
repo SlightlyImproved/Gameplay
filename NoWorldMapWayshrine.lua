@@ -7,7 +7,7 @@ CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", func
 
     local function OnMapChange()
         local wayshrinesShown = ZO_WorldMap_IsPinGroupShown(MAP_FILTER_WAYSHRINES)
-        local isEnabled = savedVars.settings.noWorldmapWayshrines
+        local isEnabled = savedVars.noWorldmapWayshrines
 
         if (GetMapType() == MAPTYPE_ALLIANCE) then
             if isEnabled and wayshrinesShown then

@@ -1,13 +1,12 @@
 -- Slightly Improved™ Gameplay 1.1.1 (Feb 18 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
-MAIL_SEND_MODE_COD = "C.O.D."
-MAIL_SEND_MODE_MONEY_ATTACHMENT = "Send Money"
-
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
+    MAIL_SEND_MODE_COD = "C.O.D."
+    MAIL_SEND_MODE_MONEY_ATTACHMENT = "Send Money"
 
     function MAIL_SEND:SetToDefaultMode()
-        if (savedVars.settings.mailSendDefaultMode == MAIL_SEND_MODE_COD) then
+        if (savedVars.mailSendDefaultMode == MAIL_SEND_MODE_COD) then
             self:SetCoDMode()
         else
             self:SetMoneyAttachmentMode()

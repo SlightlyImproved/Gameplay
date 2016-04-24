@@ -5,6 +5,7 @@
 ## License: CC BY-NC-SA 4.0
 
 LibStub/LibStub.lua
+
 LibAddonMenu-2.0/LibAddonMenu-2.0.lua
 LibAddonMenu-2.0/controls/panel.lua
 LibAddonMenu-2.0/controls/submenu.lua
@@ -20,17 +21,21 @@ LibAddonMenu-2.0/controls/slider.lua
 LibAddonMenu-2.0/controls/texture.lua
 LibAddonMenu-2.0/controls/iconpicker.lua
 
-Settings.lua
+LibHookTooltip-1.0/LibHookTooltip.lua
 
 EN.lua
 $(language).lua
+
+Settings.lua
 
 NoWorldMapWayshrine.lua
 CompactPaperDoll.lua
 MailSend.lua
 Clock.lua
+ItemTooltip.lua
 FenceWarner.lua
 TrashWarner.lua
+TradingHouse.lua
 PlayerContextMenu.lua
 
 SlightlyImprovedGameplay.lua

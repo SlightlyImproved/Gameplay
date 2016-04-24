@@ -6,6 +6,8 @@ local TrashWarner = ZO_Object:Subclass()
 local AUTO_WARN_WAIT_TIME = 60 * 10
 local TRIGGERED_WARN_WAIT_TIME = 60 * 10
 
+local settings = {}
+
 function TrashWarner:New()
     local warner = ZO_Object.New(self)
     warner:Initialize()
@@ -37,6 +39,10 @@ function TrashWarner:Initialize()
     EVENT_MANAGER:RegisterForUpdate("TrashWarner", 60 * 1000, OnUpdate)
 end
 
+function TrashWarner:IsEnabled()
+    return settings.isTrashWarnerEnabled
+end
+
 function TrashWarner:ShouldWarn(waitTime)
     local shouldWarn = false
 
@@ -65,9 +71,6 @@ function TrashWarner:Warn(waitTime)
 end
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
-    function TrashWarner:IsEnabled()
-        return savedVars.settings.isTrashWarnerEnabled
-    end
-
+    settings = savedVars
     TRASH_WARNER = TrashWarner:New()
 end)

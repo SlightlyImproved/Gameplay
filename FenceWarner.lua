@@ -6,6 +6,8 @@ local FenceWarner = ZO_Object:Subclass()
 local AUTO_WARN_WAIT_TIME = 60 * 10
 local TRIGGERED_WARN_WAIT_TIME = 60 * 10
 
+local settings = {}
+
 function FenceWarner:New()
     local warner = ZO_Object.New(self)
     warner:Initialize()
@@ -37,6 +39,10 @@ function FenceWarner:Initialize()
     EVENT_MANAGER:RegisterForUpdate("FenceWarner", 60 * 1000, OnUpdate)
 end
 
+function FenceWarner:IsEnabled()
+    return settings.isFenceWarnerEnabled
+end
+
 function FenceWarner:ShouldWarn(waitTime)
     local shouldWarn = AreAnyItemsStolen(BAG_BACKPACK)
     local notInCombat = not IsUnitInCombat("player")
@@ -53,9 +59,6 @@ function FenceWarner:Warn(waitTime)
 end
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
-    function FenceWarner:IsEnabled()
-        return savedVars.settings.isFenceWarnerEnabled
-    end
-
+    settings = savedVars
     FENCE_WARNER = FenceWarner:New()
 end)

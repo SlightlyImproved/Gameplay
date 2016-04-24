@@ -10,7 +10,7 @@ local function UpdateAnchor(control, newPoint, newRelativeTo, newRelativePoint, 
 end
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
-    if savedVars.settings.compactPaperDoll then
+    if savedVars.compactPaperDoll then
         ZO_CharacterPaperDoll:SetHidden(true)
         ZO_CharacterApparelSection:SetHidden(true)
         ZO_CharacterAccessoriesSection:SetHidden(true)
