@@ -1,4 +1,4 @@
--- SlightlyImprovedGameplay 1.1.1 (Feb 18 2016)
+-- SlightlyImprovedGameplay 1.2.0 (Apr 24 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 local defaultSavedVars =
