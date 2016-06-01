@@ -1,24 +1,24 @@
 --[[iconpickerData = {
 	type = "iconpicker",
-	name = "My Icon Picker",
-	tooltip = "Color Picker's tooltip text.",
+	name = "My Icon Picker", -- or string id or function returning a string
 	choices = {"texture path 1", "texture path 2", "texture path 3"},
-	choicesTooltips = {"icon tooltip 1", "icon tooltip 2", "icon tooltip 3"}, --(optional)
 	getFunc = function() return db.var end,
 	setFunc = function(var) db.var = var doStuff() end,
-	maxColumns = 5, --(optional) number of icons in one row
-	visibleRows = 4.5, --(optional) number of visible rows
-	iconSize = 28, --(optional) size of the icons
-	defaultColor = ZO_ColorDef:New("FFFFFF"), --(optional) default color of the icons
+	tooltip = "Color Picker's tooltip text.", -- or string id or function returning a string (optional)
+	choicesTooltips = {"icon tooltip 1", "icon tooltip 2", "icon tooltip 3"}, -- or array of string ids or array of functions returning a string (optional)
+	maxColumns = 5, -- number of icons in one row (optional)
+	visibleRows = 4.5, -- number of visible rows (optional)
+	iconSize = 28, -- size of the icons (optional)
+	defaultColor = ZO_ColorDef:New("FFFFFF"), -- default color of the icons (optional)
 	width = "full",	--or "half" (optional)
 	beforeShow = function(control, iconPicker) return preventShow end, --(optional)
 	disabled = function() return db.someBooleanSetting end,	--or boolean (optional)
-	warning = "Will need to reload the UI.",	--(optional)
-	default = defaults.var,	--(optional)
-	reference = "MyAddonIconPicker"	--(optional) unique global reference to control
+	warning = "Will need to reload the UI.",	-- or string id or function returning a string (optional)
+	default = defaults.var,	-- default value or function that returns the default value (optional)
+	reference = "MyAddonIconPicker"	-- unique global reference to control (optional)
 }	]]
 
-local widgetVersion = 2
+local widgetVersion = 5
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("iconpicker", widgetVersion) then return end
 
@@ -32,7 +32,7 @@ LAM.util.GetIconPickerMenu = function()
 	if not iconPicker then
 		iconPicker = IconPickerMenu:New("LAMIconPicker")
 		local sceneFragment = LAM:GetAddonSettingsFragment()
-		ZO_PreHook(sceneFragment, "OnHidden", function() 
+		ZO_PreHook(sceneFragment, "OnHidden", function()
 			if not iconPicker.control:IsHidden() then
 				iconPicker:Clear()
 			end
@@ -136,7 +136,7 @@ end
 
 function IconPickerMenu:OnMouseEnter(icon)
 	InitializeTooltip(InformationTooltip, icon, TOPLEFT, 0, 0, BOTTOMRIGHT)
-	SetTooltipText(InformationTooltip, LAM.util.GetTooltipText(icon.tooltip))
+	SetTooltipText(InformationTooltip, LAM.util.GetStringFromValue(icon.tooltip))
 	InformationTooltipTopLevel:BringWindowToTop()
 end
 
@@ -253,7 +253,7 @@ end
 local function UpdateChoices(control, choices, choicesTooltips)
 	local data = control.data
 	if not choices then
-		choices, choicesTooltips = data.choices, data.choicesTooltips
+		choices, choicesTooltips = data.choices, data.choicesTooltips or {}
 	end
 	local addedChoices = {}
 
@@ -268,7 +268,7 @@ local function UpdateChoices(control, choices, choicesTooltips)
 				if control.panel.data.registerForRefresh then
 					cm:FireCallbacks("LAM-RefreshPanel", control)
 				end
-			end, choicesTooltips[i])
+			end, LAM.util.GetStringFromValue(choicesTooltips[i]))
 			addedChoices[texture] = true
 		end
 	end
@@ -318,7 +318,7 @@ end
 
 local function UpdateValue(control, forceDefault, value)
 	if forceDefault then	--if we are forcing defaults
-		value = control.data.default
+		value = LAM.util.GetDefaultValue(control.data.default)
 		control.data.setFunc(value)
 		control.icon:SetTexture(value)
 	elseif value then
@@ -417,10 +417,10 @@ function LAMCreateControl.iconpicker(parent, iconpickerData, controlName)
 	if iconpickerData.warning then
 		control.warning = wm:CreateControlFromVirtual(nil, control, "ZO_Options_WarningIcon")
 		control.warning:SetAnchor(RIGHT, control.container, LEFT, -5, 0)
-		control.warning.data = {tooltipText = iconpickerData.warning}
+		control.warning.data = {tooltipText = LAM.util.GetStringFromValue(iconpickerData.warning)}
 	end
 
-	if iconpickerData.disabled then
+	if iconpickerData.disabled ~= nil then
 		control.UpdateDisabled = UpdateDisabled
 		control:UpdateDisabled()
 	end

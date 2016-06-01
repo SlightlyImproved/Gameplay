@@ -1,21 +1,22 @@
 --[[sliderData = {
 	type = "slider",
-	name = "My Slider",
-	tooltip = "Slider's tooltip text.",
+	name = "My Slider", -- or string id or function returning a string
+	getFunc = function() return db.var end,
+	setFunc = function(value) db.var = value doStuff() end,
 	min = 0,
 	max = 20,
 	step = 1,	--(optional)
-	getFunc = function() return db.var end,
-	setFunc = function(value) db.var = value doStuff() end,
+	decimals = 0, --(optional)
+	tooltip = "Slider's tooltip text.", -- or string id or function returning a string (optional)
 	width = "full",	--or "half" (optional)
 	disabled = function() return db.someBooleanSetting end,	--or boolean (optional)
-	warning = "Will need to reload the UI.",	--(optional)
-	default = defaults.var,	--(optional)
-	reference = "MyAddonSlider"	--(optional) unique global reference to control
+	warning = "Will need to reload the UI.",	-- or string id or function returning a string (optional)
+	default = defaults.var,	-- default value or function that returns the default value (optional)
+	reference = "MyAddonSlider"	-- unique global reference to control (optional)
 }	]]
 
 
-local widgetVersion = 7
+local widgetVersion = 9
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("slider", widgetVersion) then return end
 
@@ -50,7 +51,7 @@ end
 
 local function UpdateValue(control, forceDefault, value)
 	if forceDefault then	--if we are forcing defaults
-		value = control.data.default
+		value = LAM.util.GetDefaultValue(control.data.default)
 		control.data.setFunc(value)
 	elseif value and value >= control.data.min and value <= control.data.max then
 		control.data.setFunc(value)
@@ -123,26 +124,34 @@ function LAMCreateControl.slider(parent, sliderData, controlName)
 			self:LoseFocus()
 			control:UpdateValue(false, tonumber(self:GetText()))
 		end)
-
+	local function RoundDecimalToPlace(d, place)
+		return tonumber(string.format("%." .. tostring(place) .. "f", d))
+	end
 	local range = maxValue - minValue
 	slider:SetValueStep(sliderData.step or 1)
 	slider:SetHandler("OnValueChanged", function(self, value, eventReason)
 			if eventReason == EVENT_REASON_SOFTWARE then return end
-			self:SetValue(value)	--do we actually need this line?
-			slidervalue:SetText(value)
+			local new_value = sliderData.decimals and RoundDecimalToPlace(value, sliderData.decimals) or value
+			self:SetValue(new_value)	--do we actually need this line?
+			slidervalue:SetText(new_value)
 		end)
 	slider:SetHandler("OnSliderReleased", function(self, value)
 			--sliderData.setFunc(value)
-			control:UpdateValue(false, value)	--does this work here instead?
+			local new_value = sliderData.decimals and RoundDecimalToPlace(value, sliderData.decimals) or value
+			control:UpdateValue(false, new_value)	--does this work here instead?
+		end)
+	slider:SetHandler("OnMouseWheel", function(self, value)
+			local new_value = (tonumber(slidervalue:GetText()) or sliderData.min or 0) + ((sliderData.step or 1) * value)
+			control:UpdateValue(false, new_value)
 		end)
 
 	if sliderData.warning then
 		control.warning = wm:CreateControlFromVirtual(nil, control, "ZO_Options_WarningIcon")
 		control.warning:SetAnchor(RIGHT, slider, LEFT, -5, 0)
-		control.warning.data = {tooltipText = sliderData.warning}
+		control.warning.data = {tooltipText = LAM.util.GetStringFromValue(sliderData.warning)}
 	end
 
-	if sliderData.disabled then
+	if sliderData.disabled ~= nil then
 		control.UpdateDisabled = UpdateDisabled
 		control:UpdateDisabled()
 	end
