@@ -1,4 +1,4 @@
--- Slightly Improved™ Gameplay 1.2.0 (Apr 24 2016)
+-- SlightlyImprovedGameplay 1.2.1 (Jun 2 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 local FenceWarner = ZO_Object:Subclass()

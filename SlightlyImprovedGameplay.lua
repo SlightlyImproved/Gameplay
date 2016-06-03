@@ -1,5 +1,7 @@
--- SlightlyImprovedGameplay 1.2.0 (Apr 24 2016)
+-- SlightlyImprovedGameplay 1.2.1 (Jun 2 2016)
 -- Licensed under CC BY-NC-SA 4.0
+
+local NAMESPACE = "SlightlyImprovedGameplay"
 
 local defaultSavedVars =
 {
@@ -12,14 +14,14 @@ local defaultSavedVars =
     preventStoreSearchReset = true,
 }
 
-EVENT_MANAGER:RegisterForEvent("SlightlyImprovedGameplay", EVENT_ADD_ON_LOADED, function(eventCode, addOnName)
-    if (addOnName == "SlightlyImprovedGameplay") then
-
-        local savedVars = ZO_SavedVars:New("SlightlyImprovedGameplay_SavedVars", 1, nil, defaultSavedVars)
+EVENT_MANAGER:RegisterForEvent(NAMESPACE, EVENT_ADD_ON_LOADED, function(eventCode, addOnName)
+    if (addOnName == NAMESPACE) then
+        local savedVars = ZO_SavedVars:New(NAMESPACE.."_SavedVars", 1, nil, defaultSavedVars)
 
         do
-            local __newindex = savedVars.__newindex
-            function savedVars.__newindex(self, key, value)
+            local mt = getmetatable(savedVars)
+            local __newindex = mt.__newindex
+            function mt.__newindex(self, key, value)
                 __newindex(self, key, value)
 
                 if (key == "mailSendDefaultMode") then
@@ -28,6 +30,6 @@ EVENT_MANAGER:RegisterForEvent("SlightlyImprovedGameplay", EVENT_ADD_ON_LOADED, 
             end
         end
 
-        CALLBACK_MANAGER:FireCallbacks("SlightlyImprovedGameplay_OnAddOnLoaded", savedVars)
+        CALLBACK_MANAGER:FireCallbacks(NAMESPACE.."_OnAddOnLoaded", savedVars)
     end
 end)

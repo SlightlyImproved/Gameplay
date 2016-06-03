@@ -2,11 +2,10 @@
 
 > Miscellaneous changes for better gameplay in ESO.
 
-## Last update: 1.2.0 (Apr 24 2016)
+## Last update: 1.2.1 (Jun 2 2016)
 
-- Display the style in which an equipment was made in its tooltip.
-- Persist search terms across Guild Stores. No change if you're using a Guild Store replacement.
-- Increased time between warnings for trash and fence items.
+- Fix bug that prevented some settings to take effect.
+- Add compatibility to APIVersion 100015.
 
 ## About
 
