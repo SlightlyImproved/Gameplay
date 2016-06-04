@@ -4,9 +4,10 @@
 
 ## Last update: 1.2.1 (Jun 2 2016)
 
-- Fix bug that prevented some settings to take effect.
-- Fix issue introduced by API update when No Worldmap Wayshrines was enabled.
-- Add compatibility to APIVersion 100015.
+- Make emote list interactive on PC: you can click on the emotes to watch them play.
+- Fixed a bug that prevented some settings to take effect.
+- Fixed an issue introduced by API update that prevented No Worldmap Wayshrines to work.
+- Add compatibility to API 100015.
 
 ## About
 
