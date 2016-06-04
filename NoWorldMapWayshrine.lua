@@ -3,24 +3,24 @@
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
     local comboBox = WORLD_MAP_FILTERS.pvePanel:FindCheckBox(MAP_FILTER_WAYSHRINES)
-    local shouldRestore = false
+    local shouldChangeBack = false
 
-    local function OnMapChange()
-        local wayshrinesShown = ZO_WorldMap_IsPinGroupShown(MAP_FILTER_WAYSHRINES)
+    local function OnMapChanged()
+        local showWayshrines = ZO_WorldMap_IsPinGroupShown(MAP_FILTER_WAYSHRINES)
         local isEnabled = savedVars.noWorldmapWayshrines
 
-        if (GetMapType() == MAPTYPE_ALLIANCE) then
-            if isEnabled and wayshrinesShown then
-                shouldRestore = true
+        if (GetMapType() == MAPTYPE_WORLD) then
+            if (isEnabled and showWayshrines) then
                 ZO_CheckButton_OnClicked(comboBox)
+                shouldChangeBack = true
             end
         else
-            if isEnabled and not wayshrinesShown and shouldRestore then
-                shouldRestore = false
+            if (not showWayshrines and shouldChangeBack) then
                 ZO_CheckButton_OnClicked(comboBox)
+                shouldChangeBack = false
             end
         end
     end
 
-    CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", OnMapChange)
+    CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", OnMapChanged)
 end)
