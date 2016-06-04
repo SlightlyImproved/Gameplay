@@ -30,6 +30,7 @@ Settings.lua
 
 NoWorldMapWayshrine.lua
 CompactPaperDoll.lua
+PlayerEmote.lua
 MailSend.lua
 Clock.lua
 ItemTooltip.lua
