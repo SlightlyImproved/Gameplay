@@ -5,6 +5,7 @@
 ## Last update: 1.2.1 (Jun 2 2016)
 
 - Fix bug that prevented some settings to take effect.
+- Fix issue introduced by API update when No Worldmap Wayshrines was enabled.
 - Add compatibility to APIVersion 100015.
 
 ## About
