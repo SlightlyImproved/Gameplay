@@ -2,7 +2,7 @@
 
 > Miscellaneous changes for better gameplay in ESO.
 
-## Last update: 1.2.1 (Jun 2 2016)
+## Last update: 1.2.1 (Jun 4 2016)
 
 - Make emote list interactive on PC: you can click on the emotes to watch them play.
 - Fixed a bug that prevented some settings to take effect.

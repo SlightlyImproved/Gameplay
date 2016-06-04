@@ -1,4 +1,4 @@
--- SlightlyImprovedGameplay 1.2.1 (Jun 2 2016)
+-- SlightlyImprovedGameplay 1.2.1 (Jun 4 2016)
 -- Licensed under CC BY-NC-SA 4.0
 
 local function UpdateAnchor(control, newPoint, newRelativeTo, newRelativePoint, newOffsetX, newOffsetY)
