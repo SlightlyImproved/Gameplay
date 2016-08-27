@@ -2,12 +2,9 @@
 
 > Miscellaneous changes for better gameplay in ESO.
 
-## Last update: 1.2.1 (Jun 4 2016)
+## Download
 
-- Make emote list interactive on PC: you can click on the emotes to watch them play.
-- Fixed a bug that prevented some settings to take effect.
-- Fixed an issue introduced by API update that prevented No Worldmap Wayshrines to work.
-- Add compatibility to API 100015.
+You cand [get the last version](http://www.esoui.com/downloads/info1277-SlightlyImprovedGameplay.html) for free on ESOUI.
 
 ## About
 
@@ -29,3 +26,7 @@ The Slightly Improved™ Gameplay bundles a collection of small fixes and improv
 10. Check your local time with the slash commands /clock or /time.
 
 You can toggle on/off each feature individually in the add-on settings menu.
+
+## License
+
+Licensed under [MIT](LICENSE).

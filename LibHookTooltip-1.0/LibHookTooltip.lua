@@ -1,5 +1,5 @@
 -- LibHookTooltip 1.0.0
--- Licensed under CC BY-NC-SA 4.0
+-- Licensed under MIT © 2016 Arthur Corenzan
 
 local LHT, _ = LibStub:NewLibrary("LibHookTooltip-1.0", 1)
 if not LHT then
