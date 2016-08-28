@@ -1,7 +1,7 @@
 ## APIVersion: 100016
 ## Version: 1.2.2
 ## Title: Slightly Improved™ Gameplay
-## License: CC BY-NC-SA 4.0
+## License: MIT
 ## SavedVariables: SlightlyImprovedGameplay_SavedVars
 
 LibStub/LibStub.lua
