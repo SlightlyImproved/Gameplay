@@ -1,10 +1,10 @@
 -- Slightly Improved™ Gameplay
 -- The MIT License © 2016 Arthur Corenzan
 
-CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
-    MAIL_SEND_MODE_COD = "C.O.D."
-    MAIL_SEND_MODE_MONEY_ATTACHMENT = "Send Money"
+MAIL_SEND_MODE_COD = "C.O.D."
+MAIL_SEND_MODE_MONEY_ATTACHMENT = "Send Money"
 
+CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
     function MAIL_SEND:SetToDefaultMode()
         if (savedVars.mailSendDefaultMode == MAIL_SEND_MODE_COD) then
             self:SetCoDMode()
