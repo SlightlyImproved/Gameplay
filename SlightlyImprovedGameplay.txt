@@ -1,5 +1,5 @@
-## APIVersion: 100016
 ## Version: 1.2.2
+## APIVersion: 100019
 ## Title: Slightly Improved™ Gameplay
 ## License: MIT
 ## SavedVariables: SlightlyImprovedGameplay_SavedVars
