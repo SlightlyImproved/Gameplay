@@ -16,7 +16,7 @@ local options =
 {
     {
         type = "dropdown",
-        name = "Send Mail Mode",
+        name = "Default Send Mail Mode",
         tooltip = "Change whether Send Money or C.O.D. option should be selected by default when writing a new mail.",
         choices = {"Send Money", "C.O.D."},
         getFunc = function() return settings.mailSendDefaultMode end,
@@ -24,16 +24,16 @@ local options =
     },
     {
         type = "checkbox",
-        name = "Remove Paper Doll",
-        tooltip = "Rearrange equipment slots in the inventory screen.",
+        name = "Compact Equipment Slots",
+        tooltip = "Rearrange equipment slots in the inventory screen to make it more compact.",
         getFunc = function() return settings.compactPaperDoll end,
         setFunc = function(value) settings.compactPaperDoll = value end,
         warning = "Requires reloading the UI.",
     },
     {
         type = "checkbox",
-        name = "No Worldmap Wayshrines",
-        tooltip = "Automatically filter out Wayshrines when zooming out to the world map.",
+        name = "Hide Wayshrines in World View",
+        tooltip = "Automatically filter out Wayshrines when zooming out to Tamriel.",
         getFunc = function() return settings.noWorldmapWayshrines end,
         setFunc = function(value) settings.noWorldmapWayshrines = value end,
     },
@@ -53,15 +53,15 @@ local options =
     },
     {
         type = "checkbox",
-        name = "Display Equipment Style",
-        tooltip = "Display armor and weapon style in the item tooltip.",
+        name = "Display Style in Item Tooltip",
+        tooltip = "Display the armor or weapon style in the left upper corner of its item tooltip.",
         getFunc = function() return settings.improveItemTooltip end,
         setFunc = function(value) settings.improveItemTooltip = value end,
     },
     {
         type = "slider",
         name = "Old Mail Threshold in Days",
-        tooltip = "Mail older than this number of days can be deleted in bulk. Note that Mail that is new (unread) or has attachments/gold won't be touched.",
+        tooltip = "Mail older than this number of days can be deleted in bulk. Note that Mail that's still unread or has items/gold attached to it won't be touched.",
         min = 0,
         max = 30,
         step = 1,
