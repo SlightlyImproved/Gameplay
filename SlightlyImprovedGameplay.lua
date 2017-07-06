@@ -12,6 +12,7 @@ local defaultSavedVars =
     isFenceWarnerEnabled = true,
     improveItemTooltip = true,
     preventStoreSearchReset = true,
+    oldMailThreshold = 2,
 }
 
 EVENT_MANAGER:RegisterForEvent(NAMESPACE, EVENT_ADD_ON_LOADED, function(eventCode, addOnName)

@@ -65,6 +65,16 @@ local options =
         getFunc = function() return settings.preventStoreSearchReset end,
         setFunc = function(value) settings.preventStoreSearchReset = value end,
     },
+    {
+        type = "slider",
+        name = "Old Mail Threshold in Days",
+        tooltip = "Mail older than this number of days can be deleted in bulk. Note that Mail that is new (unread) or has attachments/gold won't be touched.",
+        min = 0,
+        max = 30,
+        step = 1,
+        getFunc = function() return settings.oldMailThreshold end,
+        setFunc = function(value) settings.oldMailThreshold = value end,
+    },
 }
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
