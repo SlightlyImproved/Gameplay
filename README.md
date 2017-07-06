@@ -13,13 +13,13 @@ The Slightly Improved™ Gameplay bundles a collection of small improvements in 
     - You have trash items in your inventory that should be sold to a vendor.
     - You have stolen items that should be fenced or laundered.
 3. Allows you o change the default selected option for new mail: Send Money or C.O.D.
-4. Rearrange equipment slots in the inventory screen.
-5. Automatically hide Wayshrines when zooming out to the world map.
+4. Rearrange equipment slots in the inventory screen to make it compact.
+5. Automatically hide Wayshrines when zooming out the map to the world view.
 6. Periodically display warnings when you have stolen items in your inventory.
 7. Periodically display warnings when you have trash items in your inventory.
 8. Display armor and weapon style in the item tooltip.
-9. Remember search terms across Guild Stores interactions.
-10. Check your local time with the slash commands /clock or /time.
+9. Check your local time with the slash commands /clock or /time.
+10. Add keybind to Delete Old Mail in the Mail Inbox.
 
 Also, note hat you can toggle on/off each feature individually in the add-on settings menu.
 
