@@ -59,13 +59,6 @@ local options =
         setFunc = function(value) settings.improveItemTooltip = value end,
     },
     {
-        type = "checkbox",
-        name = "Remember Guild Store Search",
-        tooltip = "Remember search terms across Guild Stores interactions. Nothing changes if you're using a Guild Store replacement.",
-        getFunc = function() return settings.preventStoreSearchReset end,
-        setFunc = function(value) settings.preventStoreSearchReset = value end,
-    },
-    {
         type = "slider",
         name = "Old Mail Threshold in Days",
         tooltip = "Mail older than this number of days can be deleted in bulk. Note that Mail that is new (unread) or has attachments/gold won't be touched.",

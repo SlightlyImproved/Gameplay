@@ -11,7 +11,6 @@ local defaultSavedVars =
     isTrashWarnerEnabled = true,
     isFenceWarnerEnabled = true,
     improveItemTooltip = true,
-    preventStoreSearchReset = true,
     oldMailThreshold = 2,
 }
 

@@ -37,7 +37,6 @@ Clock.lua
 ItemTooltip.lua
 FenceWarner.lua
 TrashWarner.lua
-TradingHouse.lua
 PlayerContextMenu.lua
 
 SlightlyImprovedGameplay.lua
