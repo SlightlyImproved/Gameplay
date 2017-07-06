@@ -54,7 +54,7 @@ local options =
     {
         type = "checkbox",
         name = "Display Style in Item Tooltip",
-        tooltip = "Display the armor or weapon style in the left upper corner of its item tooltip.",
+        tooltip = "Display the equipment style in the left upper corner of its item tooltip.",
         getFunc = function() return settings.improveItemTooltip end,
         setFunc = function(value) settings.improveItemTooltip = value end,
     },
