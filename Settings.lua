@@ -1,5 +1,5 @@
--- SlightlyImprovedGameplay 1.2.2 (Aug 27 2016)
--- Licensed under MIT © 2016 Arthur Corenzan
+-- Slightly Improved™ Gameplay
+-- The MIT License © 2016 Arthur Corenzan
 
 local settings = {}
 

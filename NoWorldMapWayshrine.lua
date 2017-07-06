@@ -1,5 +1,5 @@
--- SlightlyImprovedGameplay 1.2.2 (Aug 27 2016)
--- Licensed under MIT © 2016 Arthur Corenzan
+-- Slightly Improved™ Gameplay
+-- The MIT License © 2016 Arthur Corenzan
 
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
     local comboBox = WORLD_MAP_FILTERS.pvePanel:FindCheckBox(MAP_FILTER_WAYSHRINES)
