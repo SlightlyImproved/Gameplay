@@ -12,6 +12,7 @@ local defaultSavedVars =
     isFenceWarnerEnabled = true,
     improveItemTooltip = true,
     oldMailThreshold = 2,
+    chatAutoCompleteEnabled = true,
 }
 
 EVENT_MANAGER:RegisterForEvent(NAMESPACE, EVENT_ADD_ON_LOADED, function(eventCode, addOnName)
@@ -22,6 +23,7 @@ EVENT_MANAGER:RegisterForEvent(NAMESPACE, EVENT_ADD_ON_LOADED, function(eventCod
             local mt = getmetatable(savedVars)
             local __newindex = mt.__newindex
             function mt.__newindex(self, key, value)
+                CALLBACK_MANAGER:FireCallbacks(NAMESPACE.."_OnSavedVarChanged", key, value, self[key])
                 __newindex(self, key, value)
 
                 if (key == "mailSendDefaultMode") then

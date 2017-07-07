@@ -59,6 +59,13 @@ local options =
         setFunc = function(value) settings.improveItemTooltip = value end,
     },
     {
+        type = "checkbox",
+        name = "Chat Auto Complete",
+        tooltip = "Turn on/off the suggestions for slash commands in chat.",
+        getFunc = function() return settings.chatAutoCompleteEnabled end,
+        setFunc = function(value) settings.chatAutoCompleteEnabled = value end,
+    },
+    {
         type = "slider",
         name = "Old Mail Threshold in Days",
         tooltip = "Mail older than this number of days can be deleted in bulk. Note that Mail that's still unread or has items/gold attached to it won't be touched.",

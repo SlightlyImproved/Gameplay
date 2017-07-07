@@ -37,6 +37,7 @@ Clock.lua
 ItemTooltip.lua
 FenceWarner.lua
 TrashWarner.lua
+ChatAutoComplete.lua
 PlayerContextMenu.lua
 
 SlightlyImprovedGameplay.lua
