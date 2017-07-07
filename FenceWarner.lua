@@ -3,8 +3,8 @@
 
 local FenceWarner = ZO_Object:Subclass()
 
-local AUTO_WARN_WAIT_TIME = 60 * 10
-local TRIGGERED_WARN_WAIT_TIME = 60 * 10
+local AUTO_WARN_WAIT_TIME = 60 * 15
+local TRIGGERED_WARN_WAIT_TIME = 60 * 15
 
 local settings = {}
 
