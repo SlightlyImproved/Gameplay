@@ -25,10 +25,6 @@ EVENT_MANAGER:RegisterForEvent(NAMESPACE, EVENT_ADD_ON_LOADED, function(eventCod
             function mt.__newindex(self, key, value)
                 CALLBACK_MANAGER:FireCallbacks(NAMESPACE.."_OnSavedVarChanged", key, value, self[key])
                 __newindex(self, key, value)
-
-                if (key == "mailSendDefaultMode") then
-                    MAIL_SEND:SetToDefaultMode()
-                end
             end
         end
 
