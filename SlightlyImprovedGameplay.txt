@@ -16,7 +16,6 @@ PlayerEmote.lua
 MailSend.lua
 MailInbox.lua
 Clock.lua
-ItemTooltip.lua
 FenceWarner.lua
 TrashWarner.lua
 ChatAutoComplete.lua
