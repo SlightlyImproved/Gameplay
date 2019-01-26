@@ -3,25 +3,7 @@
 ## Title: Slightly Improved™ Gameplay
 ## License: MIT
 ## SavedVariables: SlightlyImprovedGameplay_SavedVars
-
-LibStub/LibStub.lua
-
-LibAddonMenu-2.0/LibAddonMenu-2.0.lua
-LibAddonMenu-2.0/controls/panel.lua
-LibAddonMenu-2.0/controls/submenu.lua
-LibAddonMenu-2.0/controls/button.lua
-LibAddonMenu-2.0/controls/checkbox.lua
-LibAddonMenu-2.0/controls/colorpicker.lua
-LibAddonMenu-2.0/controls/custom.lua
-LibAddonMenu-2.0/controls/description.lua
-LibAddonMenu-2.0/controls/dropdown.lua
-LibAddonMenu-2.0/controls/editbox.lua
-LibAddonMenu-2.0/controls/header.lua
-LibAddonMenu-2.0/controls/slider.lua
-LibAddonMenu-2.0/controls/texture.lua
-LibAddonMenu-2.0/controls/iconpicker.lua
-
-LibHookTooltip-1.0/LibHookTooltip.lua
+## DependsOn: LibAddonMenu-2.0
 
 EN.lua
 $(language).lua
