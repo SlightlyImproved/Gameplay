@@ -1,6 +1,10 @@
 # Slightly Improved™ Gameplay
 
-> Miscellaneous changes for better gameplay in ESO.
+> Elder Scrolls Online add-on for a slightly improved gameplay.
+
+## Download
+
+You can [download the latest version from ESOUI](https://www.esoui.com/downloads/info1277-SlightlyImprovedGameplay.html).
 
 ## About
 
@@ -17,9 +21,8 @@ The Slightly Improved™ Gameplay bundles a collection of small improvements in 
 5. Automatically hide Wayshrines when zooming out the map to the world view.
 6. Periodically display warnings when you have stolen items in your inventory.
 7. Periodically display warnings when you have trash items in your inventory.
-8. Display armor and weapon style in the item tooltip.
-9. Check your local time with the slash commands /clock or /time.
-10. Add keybind to Delete Old Mail in the Mail Inbox.
+8. Check your local time with the slash commands /clock or /time.
+9. Add keybind to Delete Old Mail in the Mail Inbox.
 
 Also, note hat you can toggle on/off each feature individually in the add-on settings menu.
 
