@@ -1,4 +1,4 @@
-## APIVersion: 100019
+## APIVersion: 100025
 ## Version: 1.3.0
 ## Title: Slightly Improved™ Gameplay
 ## License: MIT
