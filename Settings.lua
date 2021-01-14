@@ -80,7 +80,7 @@ local options =
 CALLBACK_MANAGER:RegisterCallback("SlightlyImprovedGameplay_OnAddOnLoaded", function(savedVars)
     settings = savedVars
 
-    local LAM = LibStub("LibAddonMenu-2.0")
+    local LAM = LibAddonMenu2 or LibStub("LibAddonMenu-2.0")
     LAM:RegisterAddonPanel("SlightlyImprovedGameplay", panel)
     LAM:RegisterOptionControls("SlightlyImprovedGameplay", options)
 end)
